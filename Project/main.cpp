@@ -10,7 +10,7 @@ int main()
 	// Push
 	for (int n = 1; n <= 12; n++)
 	{
-		IntSimpleVector.PushBack(n);
+		IntSimpleVector.PushBack(n * (n % 2 == 0 ? 100 : 1));
 		FloatSimpleVector.PushBack(1.0f / n);
 		std::cout << "IntSimpleVector"
 				  << ", Size():" << IntSimpleVector.Size()
@@ -44,5 +44,22 @@ int main()
 	{
 		std::cout << "FloatSimpleVector[" << n << "] = " << FloatSimpleVector.Get(n) << std::endl;
 	}
+
+	// Copy Constructor
+	FSimpleVector<int> FooBar = IntSimpleVector;
+	std::cout << "Copy Constructor" << std::endl;
+	FooBar.PushBack(-9999);
+	FooBar.PushBack(9999);
+
+	std::cout << "IntSimpleVector.Size(): " << IntSimpleVector.Size() << std::endl;
+	std::cout << "FooBar.Size(): " << FooBar.Size() << std::endl;
+
+	// Sort
+	FooBar.SortData();
+	for (int n = 0; n < FooBar.Size(); n++)
+	{
+		std::cout << "FooBar[" << n << "] = " << FooBar.Get(n) << std::endl;
+	}
+
 	return 0;
 }
