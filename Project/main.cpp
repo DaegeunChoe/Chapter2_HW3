@@ -2,8 +2,21 @@
 #include <iostream>
 #include "SimpleVector.h"
 
+#define _CRTDBG_MAP_ALLOC
+#include <crtdbg.h>
+
+class Foo{
+public:
+	Foo() {}
+	~Foo() {}
+	int a;
+	float b;
+	double c;
+};
+
 int main()
 {
+	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	FSimpleVector<int> IntSimpleVector;
 	FSimpleVector<float> FloatSimpleVector(5);
 
@@ -60,6 +73,8 @@ int main()
 	{
 		std::cout << "FooBar[" << n << "] = " << FooBar.Get(n) << std::endl;
 	}
+
+	FSimpleVector<Foo> TVector;
 
 	return 0;
 }

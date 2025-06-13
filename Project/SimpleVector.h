@@ -53,7 +53,7 @@ inline FSimpleVector<T>::FSimpleVector(const FSimpleVector& value) : FSimpleVect
 template<typename T>
 inline FSimpleVector<T>::~FSimpleVector()
 {
-	delete Data;
+	delete[] Data;
 }
 
 template<typename T>
